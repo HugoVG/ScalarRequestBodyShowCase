@@ -37,4 +37,29 @@ public class WeatherForecastController : ControllerBase
             })
             .ToArray();
     }
+    
+    [HttpPost("Example/body")]
+    public WeatherForecast Post([FromBody] WeatherForecast weatherForecast)
+    {
+        return weatherForecast;
+    }
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="summary"></param>
+    /// <param name="temperatureC"></param>
+    /// <param name="date"></param>
+    /// <returns></returns>
+    [HttpPost("Example/parameters")]
+    public WeatherForecast PostBody(string summary, int temperatureC, DateOnly date)
+    {
+        var weatherForecast = new WeatherForecast
+        {
+            Summary = summary,
+            TemperatureC = temperatureC,
+            Date = date
+        };
+        return weatherForecast;
+    }
 }
