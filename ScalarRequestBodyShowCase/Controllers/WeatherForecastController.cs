@@ -18,6 +18,14 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
+    /// <summary>
+    /// Get the weather forecast
+    /// </summary>
+    /// <returns>A list of weather forecasts</returns>
+    /// <response code="200">Returns the list of weather forecasts</response>
+    /// <response code="400">Something went terrible wrong</response>
+    /// <response code="401">You're not logged in</response>
+    /// <response code="418">Webserver became a teapot</response>
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
